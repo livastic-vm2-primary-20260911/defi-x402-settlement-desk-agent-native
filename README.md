@@ -27,6 +27,14 @@ Local decision semantics:
 - `REVIEW`: Terms are individually acceptable but ambiguous; user must review.
 - `READY_FOR_HUMAN_REVIEW`: Basic quote constraints passed, **not** permission or proof of payment. A separate explicit human approval would still be needed outside this app.
 
+### Actual isolated-browser UI proof
+
+The following screenshots were captured from the local Agent-Native UI against **synthetic merchant quotes**, exercising the same action from the browser (not hand-drawn mockups). GitHub Actions and deterministic unit tests independently validate the pure payment engine.
+
+![A valid 0.01 USDC quote requiring separate human review](docs/media/desk-valid-result.png)
+
+![An over-cap 0.020001 USDC quote blocked by policy](docs/media/desk-blocked-result.png)
+
 ## Run locally (no wallet)
 
 Tested using Node.js 22, pnpm 10.29.1, Agent-Native 0.220.0.
@@ -39,6 +47,8 @@ pnpm typecheck
 NODE_ENV=development AUTH_DISABLED=true PORT=4173 AGENT_TERMINAL_ENABLED=false \
   pnpm exec agent-native dev --host 127.0.0.1 --port 4173 --strictPort
 ```
+
+On Linux with `/usr/bin/google-chrome`, optionally run `pnpm run demo:verify` in a separate terminal while the server is active to produce an isolated, credential-free browser walk-through in gitignored `.tmp/`.
 
 Visit `http://127.0.0.1:4173/desk`. The app starts on `/home` as well; use **Load valid example** and **Try over-cap example**. The demo payloads are synthetic and payment-free.
 
