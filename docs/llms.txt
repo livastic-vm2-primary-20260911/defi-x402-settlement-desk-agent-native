@@ -16,6 +16,7 @@ Verified as of 2026-10-25.
 
 ## Distinct real paid x402 origin for agents
 The human owner also operates an independent, public GitHub Actions security-static heuristic API at https://vm2-workflow-x402.onrender.com . It is not part of the free GitHub Pages browser guard.
+- GET https://vm2-workflow-x402.onrender.com/v1/quick-public-workflow: 0.005 native Base Circle USDC, no JSON body; checks one anonymously readable public GitHub Actions workflow with validated optional owner/repo/ref/file. After independent buyer authorization gives counts/top 3 signal IDs/lines and GitHub source SHA. Unsigned call first returns 402.
 - POST https://vm2-workflow-x402.onrender.com/v1/quick-check: 0.005 native Base Circle USDC per successful externally authorized x402v2 paid call; returns source-line severity counts and top three signal IDs and lines.
 - POST https://vm2-workflow-x402.onrender.com/v1/check: 0.02 native Base Circle USDC, full source-line heuristic findings (never a formal audit).
 - GET https://vm2-workflow-x402.onrender.com/v1/public-workflow: 0.02 native Base Circle USDC, checks one anonymously readable public GitHub Actions workflow source.
@@ -23,7 +24,7 @@ The human owner also operates an independent, public GitHub Actions security-sta
 - Both routes preserve exact on-chain payTo 0x4e3106520e40af30870caFE78da1B1e7110eD98E and official Base8453 CircleUSDC 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913. Avoid passing passwords, keys or private repositories. Do not infer any payment from an HTTP 402 quote.
 - Public source: https://github.com/livastic-vm2-primary-20260911/workflow-risk-x402
 - Payment settlement remains unverified without an independently finalized unique Base USDC transfer from a genuine external buyer to the original owner public address.
-- Agent402 seller registration was attempted by original owner; a directory response is not a client purchase and independent indexing can lag.
+- Agent402 original seller listing was registered, but discoverability may fluctuate. Original PayAPI micro GET SKU was submitted under the same single-owner existing seller and is pending human/paid-canary review; neither platform approval nor settlement can be claimed without first-party receipt. A directory response is not a client purchase.
 
 ## Commercial offer: separately agreed paid integration, NOT automatic paid API
 The owner invites an individually negotiated "$49 fixed-scope offline x402 buyer preflight review" request through the native mailto link on the website. Price is a proposal, not an existing customer sale or received payment. Agree on precise scope, acceptance, AI-assisted labor and lawful invoice/payout route in writing before work. No self purchases or unverifiable earnings.

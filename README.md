@@ -91,7 +91,7 @@ Browser review UI /home and /desk   Autonomous Agent / MCP / CLI
 | `examples/*.json` | Public synthetic, credential-free fixtures |
 
 ## Separate live agent-paid workflow SKU
-The same original beneficial owner also operates a **different product**: static GitHub Actions YAML preflight at https://vm2-workflow-x402.onrender.com/v1/docs with a 0.005 native Base Circle USDC micro-result and 0.02 native Base Circle USDC full report, plus a free sample at /v1/sample. These x402v2 routes have independently verified unsigned 402 payment quotes. The agent buyer must authorize its own optional payment; this GitHub Pages website never signs or pays. No finalized outside buyer receipts or product sales are assumed merely because an API is live.
+The same original beneficial owner also operates a **different product**: static GitHub Actions YAML preflight at https://vm2-workflow-x402.onrender.com/v1/docs with a no-body GET /v1/quick-public-workflow 0.005 native Base Circle USDC micro-result, separate POST /v1/quick-check 0.005 USDC, and 0.02 native Base Circle USDC full report, plus a free sample at /v1/sample. The GET route has a distinct original-owner PayAPI listing submitted for approval (not yet reviewed/paid). These x402v2 routes have independently verified unsigned 402 payment quotes. The agent buyer must authorize its own optional payment; this GitHub Pages website never signs or pays. No finalized outside buyer receipts or product sales are assumed merely because an API is live.
 
 ## Paid integration work
 
