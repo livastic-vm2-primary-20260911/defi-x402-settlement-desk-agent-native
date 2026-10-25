@@ -1,0 +1,21 @@
+# DeFi Payment Desk — x402 Base USDC Payment Quote Preflight
+
+Canonical website: https://livastic-vm2-primary-20260911.github.io/defi-x402-settlement-desk-agent-native/
+Source code: https://github.com/livastic-vm2-primary-20260911/defi-x402-settlement-desk-agent-native
+Real browser demo: https://github.com/livastic-vm2-primary-20260911/defi-x402-settlement-desk-agent-native/releases/tag/v0.1.0-prototype
+Owner contact: onecursor1@gmail.com
+Copyright: One Cursor original developer additions; based on Builder.io MIT Agent-Native scaffold, all original upstream notices retained.
+Verified as of 2026-10-25.
+
+## What can this public website do?
+- Pure client-side, browser-local, non-custodial inspection of public x402 v2 JSON PAYMENT-REQUIRED metadata.
+- Check exact Base mainnet eip155:8453 chain, official native Circle USDC contract 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913, exact scheme and optionally the trusted receiver address.
+- Enforce user's explicit maximum spend using 6-decimal BigInt micro-USDC arithmetic.
+- Return BLOCK, REVIEW or READY_FOR_HUMAN_REVIEW, NEVER an automated authorization or proof of payment.
+- Real Playwright Chrome tests check a valid quote, over-cap blocked quote, payee mismatch and rejection of unsupported v1 format. No wallet sign, swap, transfer, private key, bridge, deposit, gas or API-token upload.
+
+## Commercial offer: separately agreed paid integration, NOT automatic paid API
+The owner invites an individually negotiated "$49 fixed-scope offline x402 buyer preflight review" request through the native mailto link on the website. Price is a proposal, not an existing customer sale or received payment. Agree on precise scope, acceptance, AI-assisted labor and lawful invoice/payout route in writing before work. No self purchases or unverifiable earnings.
+
+## Reuse
+The same policy engine source lives in shared/quote-guard.ts. No remote paid API is hosted at this GitHub Pages site. Do not send a wallet transaction or private materials to this URL.
