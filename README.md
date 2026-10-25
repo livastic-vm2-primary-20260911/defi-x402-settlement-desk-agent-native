@@ -90,6 +90,9 @@ Browser review UI /home and /desk   Autonomous Agent / MCP / CLI
 | `tests/quote-guard.test.ts` | Valid/invalid chain, asset, cap, address, timeout, scheme, v1/v2, precision |
 | `examples/*.json` | Public synthetic, credential-free fixtures |
 
+## Separate live agent-paid workflow SKU
+The same original beneficial owner also operates a **different product**: static GitHub Actions YAML preflight at https://vm2-workflow-x402.onrender.com/v1/docs with a 0.005 native Base Circle USDC micro-result and 0.02 native Base Circle USDC full report, plus a free sample at /v1/sample. These x402v2 routes have independently verified unsigned 402 payment quotes. The agent buyer must authorize its own optional payment; this GitHub Pages website never signs or pays. No finalized outside buyer receipts or product sales are assumed merely because an API is live.
+
 ## Paid integration work
 
 For teams implementing x402 APIs, we can discuss an **independently agreed paid** mini-review of public/synthetic payment challenge formats and buyer-facing preflight UX. Work would be transparently AI-assisted, scope and acceptance defined in writing, no production penetration testing without separate authorization, no advance purchaser funds requested to perform the quote review. Commercial inquiries: **onecursor1@gmail.com**. A posted example, GitHub star, proposal or unpaid demo is **not a sale**.

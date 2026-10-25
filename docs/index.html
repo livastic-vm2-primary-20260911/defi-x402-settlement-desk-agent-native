@@ -125,6 +125,28 @@
       <div class="feature"><div class="symbol">◈</div><h3>Payee + human oversight</h3><p>Optional approved-recipient check, multiple-option escalation, bounded timeouts and no automatic signing or settlement.</p></div>
     </div>
   </section>
+  <section class="section" data-micro-seller="vm2-public-x402">
+    <div class="eyebrow">PAID API FOR AGENTS · X402 ON BASE</div>
+    <h2 class="section-title">Small, independently priced scans.<br>Same original owner and Base USDC.</h2>
+    <p class="helper">For GitHub Actions workflow YAML, an agent can call a separate live x402 seller directly. It never pays through this free browser and never needs to share its wallet seed. A valid request receives an exact unsigned HTTP 402 quote before the caller decides whether to pay.</p>
+    <div class="features">
+      <div class="feature"><div class="symbol">0.005</div><h3>Quick YAML risk signals · 0.005 USDC</h3>
+        <p>POST https://vm2-workflow-x402.onrender.com/v1/quick-check — counts and up to three finding IDs/severity/line numbers. 5,000 native Base Circle USDC atomic units per paid call. Designed for lightweight agent checks.</p>
+      </div>
+      <div class="feature"><div class="symbol">0.02</div><h3>Full workflow review · 0.02 USDC</h3>
+        <p>POST https://vm2-workflow-x402.onrender.com/v1/check — full offline YAML static findings and explanations. Also available for a public GitHub Actions file through GET /v1/public-workflow.</p>
+      </div>
+      <div class="feature"><div class="symbol">◎</div><h3>Free discovery before payment</h3>
+        <p>Inspect a real synthetic report, OpenAPI schema, canonical x402 requirements and service health. No purchase, client signup, token approval or owner deposit required just to learn the contract.</p>
+      </div>
+    </div>
+    <div class="btnrow" style="margin-top:21px">
+      <a class="btn-primary" style="display:inline-block;text-decoration:none;border-radius:9px;padding:12px 16px;font-size:13px" target="_blank" rel="noopener noreferrer" href="https://vm2-workflow-x402.onrender.com/v1/docs">Read free paid-API terms ↗</a>
+      <a style="border:1px solid #d6ded8;background:white;display:inline-block;text-decoration:none;border-radius:9px;padding:12px 16px;font-size:13px" target="_blank" rel="noopener noreferrer" href="https://vm2-workflow-x402.onrender.com/openapi.json">Inspect API schema ↗</a>
+      <a style="border:1px solid #d6ded8;background:white;display:inline-block;text-decoration:none;border-radius:9px;padding:12px 16px;font-size:13px" target="_blank" rel="noopener noreferrer" href="https://vm2-workflow-x402.onrender.com/v1/sample">Free synthetic sample ↗</a>
+    </div>
+    <p class="helper">Operational disclosure: the origin seller is deployed and the unsigned 402 price/network/payee were independently checked. Successful paid live transactions and commercial buyers have NOT been verified. Neither these prices nor any directory registration imply realized revenue.</p>
+  </section>
   <section class="offer" id="paid">
     <div><div class="eyebrow" style="color:#91c7a9">PAID CUSTOM X402 QA · INDEPENDENT COMMISSION</div>
       <h2>Need this tailored to your merchant?</h2>
