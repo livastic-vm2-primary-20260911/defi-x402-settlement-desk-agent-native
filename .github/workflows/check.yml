@@ -27,3 +27,7 @@ jobs:
         run: pnpm test
       - name: Type-check shared agent/UI contract
         run: pnpm typecheck
+      - name: Verify static public guard is built from the shared policy
+        run: |
+          pnpm run build:public
+          git diff --exit-code -- docs/quote-guard.js

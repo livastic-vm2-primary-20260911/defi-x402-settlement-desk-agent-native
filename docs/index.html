@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Review x402 v2 Base USDC quotes before touching a wallet. Free public offline guard with optional independently priced integration review.">
+  <meta name="color-scheme" content="light">
+  <meta property="og:title" content="DeFi Payment Desk — x402 Base USDC Quote Guard">
+  <meta property="og:description" content="Check network, real Circle USDC, payTo and spend cap with one auditable open-source guard. No wallet signing.">
+  <meta name="theme-color" content="#101923">
+  <title>DeFi Payment Desk — x402 v2 Base USDC policy</title>
+  <style>
+  :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#19222a;background:#f5f5f1;font-synthesis:none}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px}a{color:inherit}button,input,textarea{font:inherit}
+  .wrap{width:min(1180px,calc(100% - 44px));margin:auto}
+  .nav{border-bottom:1px solid #dfe2de;background:#fff}
+  .nav-flex{display:flex;align-items:center;justify-content:space-between;min-height:78px;gap:18px;flex-wrap:wrap}
+  .brand{display:flex;gap:11px;align-items:center;text-decoration:none;font-weight:770;letter-spacing:-.04em;font-size:16px}
+  .logo{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:11px;background:#111c27;color:#bff7d5;font-size:19px}
+  .navlinks{display:flex;gap:17px;align-items:center;color:#46535a;font-size:13px;flex-wrap:wrap}
+  .navlinks a{text-decoration:none}.navlinks a:hover{text-decoration:underline}
+  .navlinks .pill{padding:9px 12px;border:1px solid #cdd8d1;border-radius:50px;color:#1d5541}
+  .hero{padding:69px 0 55px;display:grid;grid-template-columns:1.5fr .75fr;gap:44px;align-items:end}
+  .eyebrow{color:#436653;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.17em}
+  h1{font-size:clamp(40px,6.1vw,82px);letter-spacing:-.074em;line-height:1.045;margin:19px 0}
+  h1 span{color:#85908b}.hero p{line-height:1.8;max-width:650px;color:#526059;font-size:16px;margin:0}
+  .hero-metric{background:#17262e;color:#fff;padding:27px;border-radius:21px}
+  .hero-metric small{font-size:12px;color:#92a9a8}.hero-metric strong{font-size:24px;line-height:1.25;display:block;margin:17px 0 8px;letter-spacing:-.035em}
+  .hero-metric p{color:#b4c6c6;font-size:13px;line-height:1.65}
+  .badgebar{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.badge{font-size:11px;font-weight:620;border:1px solid #d4dad6;background:#fff;padding:8px 11px;border-radius:20px}
+  .two{display:grid;grid-template-columns:1.1fr .9fr;gap:19px;align-items:start}
+  .card{background:#fff;border:1px solid #dfe3de;border-radius:20px;box-shadow:0 10px 35px rgba(20,33,30,.025);padding:29px}
+  .heading{display:flex;gap:13px;align-items:flex-start;margin-bottom:22px}
+  .step{font:600 11px ui-monospace,monospace;padding:7px 9px;border-radius:6px;border:1px solid #dce4df;color:#52645d}
+  h2{font-size:19px;margin:0 0 5px;letter-spacing:-.035em}h3{font-size:16px;margin:0 0 8px;letter-spacing:-.022em}
+  .helper{font-size:13px;color:#68756c;line-height:1.6;margin:0}
+  label{display:block;margin:16px 0 7px;font-size:12px;font-weight:720;color:#43554b}
+  textarea{width:100%;border-radius:12px;border:1px solid #283842;background:#101923;color:#d6f5e9;min-height:322px;resize:vertical;padding:17px;font:12px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;tab-size:2}
+  input{width:100%;background:#fff;border:1px solid #cfdad1;border-radius:9px;padding:13px;color:#18292b}
+  input:focus,textarea:focus,button:focus-visible{outline:3px solid #8ecfb5;outline-offset:2px}
+  .controlrow{display:grid;grid-template-columns:.35fr .65fr;gap:12px}
+  .btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:17px}
+  button{border:1px solid #d6ded8;border-radius:9px;padding:9px 13px;background:#fff;font-size:12px;font-weight:730;cursor:pointer}
+  button:hover{background:#eaf3ed}.btn-primary{background:#16272e;color:#fff;border-color:#16272e}
+  .btn-primary:hover{background:#35464c}.btn-run{width:100%;display:flex;justify-content:space-between;align-items:center;background:#17282f;color:#fff;border:0;padding:17px 19px;border-radius:11px;font-size:14px;margin-top:24px}
+  .btn-run:hover{background:#344d50}.btn-run:disabled{opacity:.4;cursor:default}
+  .smallnote{text-align:center;color:#889187;font-size:11px;line-height:1.5}
+  .result{min-height:300px}.empty{border:1px dashed #cfd9d2;border-radius:12px;min-height:233px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#8d9a92;padding:24px}
+  .empty strong{color:#3c5146;font-size:15px;margin:11px 0 5px}.empty span{font-size:12px;max-width:300px;line-height:1.6}
+  .signal{border-radius:12px;background:#17252e;color:white;padding:20px 21px;margin:20px 0}
+  .signal small{display:block;letter-spacing:.14em;text-transform:uppercase;font-size:10px;color:#aac1bb;font-weight:700}
+  .signal strong{font-size:19px;display:block;margin:12px 0 8px;letter-spacing:-.025em}
+  .signal p{font-size:12px;color:#cbdbd8;line-height:1.65;margin:0}
+  .statgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+  .stat{padding:15px;border:1px solid #e2e8e2;border-radius:11px}.stat small{display:block;font-size:11px;color:#819089;margin-bottom:7px}
+  .stat strong{font-size:18px;overflow-wrap:anywhere}
+  .finding{font-size:12px;padding:10px 0;border-bottom:1px solid #edf0eb;display:flex;gap:12px;align-items:flex-start;color:#4e5f56}
+  .finding b{font-size:13px}.finding .pass{color:#207753}.finding .fail{color:#a14337}
+  .warn{font-size:12px;line-height:1.65;color:#6b3615;background:#fff3dd;border:1px solid #f1dfbd;border-radius:9px;padding:13px 15px;margin-top:12px}
+  .opt{border:1px solid #dde3df;border-radius:10px;padding:14px;font-size:12px;margin-top:10px}.opt strong{display:block;margin-bottom:9px}
+  .opt span{display:block;color:#67756e;overflow-wrap:anywhere;line-height:1.65}
+  .section{padding:58px 0}.section-title{font-size:clamp(25px,3.4vw,37px);letter-spacing:-.055em;line-height:1.15;margin:9px 0 12px}
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:27px}
+  .feature{background:#fff;border:1px solid #dce4dd;border-radius:16px;padding:25px}
+  .feature .symbol{font-size:23px;color:#1b6043;margin-bottom:17px}.feature p{color:#68776d;font-size:13px;line-height:1.7;margin:0}
+  .offer{background:#15252c;color:#fff;border-radius:22px;padding:35px 38px;display:flex;gap:36px;align-items:center;justify-content:space-between}
+  .offer h2{font-size:29px;letter-spacing:-.045em}.offer p{font-size:13px;line-height:1.75;color:#bfcecb;max-width:650px}
+  .offer a{display:inline-block;padding:14px 20px;border-radius:11px;background:#c7f7d8;color:#143226;text-decoration:none;font-size:13px;font-weight:750;white-space:nowrap}
+  .footer{padding:38px 0 50px;font-size:12px;color:#6e7b73;line-height:1.8}
+  .footer a{color:#365d45}
+  .muted-code{font:11px/1.6 ui-monospace,monospace;overflow-wrap:anywhere;color:#82918a}
+  @media(max-width:800px){.hero,.two{grid-template-columns:1fr}.hero{padding:44px 0 36px}.hero-metric{max-width:100%}.features{grid-template-columns:1fr}.offer{flex-direction:column;align-items:start;gap:11px}.card{padding:21px}}
+  @media(max-width:470px){.wrap{width:calc(100% - 26px)}.controlrow{grid-template-columns:1fr}.statgrid{grid-template-columns:1fr}.nav-flex{padding:14px 0}.navlinks{gap:10px}.badgebar .badge{font-size:10px}.hero{padding-top:34px}.offer{padding:25px}}
+  </style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-flex">
+    <a class="brand" href="#top"><span class="logo" aria-hidden="true">◈</span><span>DeFi Payment Desk</span></a>
+    <div class="navlinks">
+      <a href="#review">Try the guard</a><a href="#how">How it works</a><a href="#paid">Paid integration</a>
+      <a class="pill" href="https://github.com/livastic-vm2-primary-20260911/defi-x402-settlement-desk-agent-native" target="_blank" rel="noopener noreferrer">Open-source ↗</a>
+    </div>
+  </div>
+</header>
+<main id="top" class="wrap">
+  <section class="hero">
+    <div><div class="eyebrow">PAYMENT SAFETY · X402 · HUMAN + AGENT</div>
+      <h1>Check the terms.<br><span>Keep the keys.</span></h1>
+      <p>A free, browser-local x402 quote guard. Catch altered recipients, unsupported chains, impostor tokens and cost overruns <b>before</b> a wallet ever sees a payment request.</p>
+      <div class="badgebar"><span class="badge">Base mainnet</span><span class="badge">Official Circle USDC</span><span class="badge">x402 v2</span><span class="badge">No wallet required</span></div>
+    </div>
+    <aside class="hero-metric"><small>DEFAULT TRUST BOUNDARY</small><strong>Zero wallet access.<br>Zero automatic spend.</strong><p>The guard analyzes pasted public payment metadata locally. It cannot sign, transfer, connect a wallet or prove a settlement.</p></aside>
+  </section>
+  <section class="two" id="review">
+    <div class="card">
+      <div class="heading"><span class="step">01</span><div><h2>Inspect a seller's quote</h2><p class="helper">Paste public x402 v2 PAYMENT-REQUIRED JSON. No private keys, signatures, passwords or API tokens.</p></div></div>
+      <div class="btnrow">
+        <button id="demo-valid" class="btn-primary" type="button">Load valid example</button>
+        <button id="demo-blocked" type="button">Try over-cap example</button>
+        <button id="clear" type="button">Clear</button>
+      </div>
+      <label for="json">x402 PAYMENT-REQUIRED JSON</label>
+      <textarea id="json" maxlength="20000" spellcheck="false" aria-label="Payment quote JSON" autocomplete="off"></textarea>
+      <div class="controlrow">
+        <div><label for="cap">Max spend (USDC)</label><input id="cap" value="0.02" inputmode="decimal" autocomplete="off"></div>
+        <div><label for="recipient">Expected payTo (optional public address)</label><input id="recipient" autocomplete="off" spellcheck="false"></div>
+      </div>
+      <button class="btn-run" id="run" type="button"><span>Review payment terms</span><span aria-hidden="true">↗</span></button>
+      <p class="smallnote">This check runs locally in your browser. The merchant URL is never fetched.</p>
+    </div>
+    <div class="card result">
+      <div class="heading"><span class="step">02</span><div><h2>Policy decision</h2><p class="helper">Every finding is derived from a deterministic BigInt-based payment checker.</p></div></div>
+      <div id="decision" aria-live="polite"><div class="empty"><span style="font-size:38px">◎</span><strong>Ready to inspect a quote</strong><span>Choose an example or paste your own x402 v2 metadata, then run the policy.</span></div></div>
+    </div>
+  </section>
+  <section class="section" id="how">
+    <div class="eyebrow">THE ENGINE BEHIND THE VERDICT</div>
+    <h2 class="section-title">Exact amounts. Transparent rules.<br>No assumptions about payment.</h2>
+    <p class="helper">One open-source TypeScript engine is compiled directly into this public page and reused by the Agent-Native action. No separate hidden AI opinion or payment oracle.</p>
+    <div class="features">
+      <div class="feature"><div class="symbol">⌘</div><h3>Chain + asset boundary</h3><p>Only `eip155:8453` and Circle's native Base USDC contract. Reject bridged, wrapped or substituted assets.</p></div>
+      <div class="feature"><div class="symbol">＝</div><h3>Exact economic caps</h3><p>Whole-number atomic micro-USDC compared using BigInt. Reject even a single micro-unit above your declared ceiling.</p></div>
+      <div class="feature"><div class="symbol">◈</div><h3>Payee + human oversight</h3><p>Optional approved-recipient check, multiple-option escalation, bounded timeouts and no automatic signing or settlement.</p></div>
+    </div>
+  </section>
+  <section class="offer" id="paid">
+    <div><div class="eyebrow" style="color:#91c7a9">PAID CUSTOM X402 QA · INDEPENDENT COMMISSION</div>
+      <h2>Need this tailored to your merchant?</h2>
+      <p>Ask about a $49 fixed-scope, AI-assisted <b>offline</b> x402 quote-format and buyer-preflight review using public or synthetic fixtures. Written scope, acceptance criteria, revision limit and your lawful payment route must be agreed before work. Not an audit, penetration test or payment custody service. <b>No unsolicited wallet payment requested.</b></p>
+    </div>
+    <a href="mailto:onecursor1@gmail.com?subject=x402%20quote%20review%20%E2%80%94%20paid%20scope%20request&amp;body=Hello%2C%0A%0AOur%20organization%20is%3A%0AThe%20public%2Fsynthetic%20x402%20materials%20are%3A%0AProposed%20budget%20and%20acceptance%20criteria%3A%0AConfirmation%20that%20AI-assisted%20work%20is%20allowed%3A%0A">Request a paid review ↗</a>
+  </section>
+  <footer class="footer">
+    <p>Open source · <a href="https://github.com/livastic-vm2-primary-20260911/defi-x402-settlement-desk-agent-native" target="_blank" rel="noopener noreferrer">Source and regression tests</a> · <a href="https://github.com/livastic-vm2-primary-20260911/defi-x402-settlement-desk-agent-native/releases/tag/v0.1.0-prototype" target="_blank" rel="noopener noreferrer">Real demo video</a> · Built 25 October 2026</p>
+    <p class="muted-code">Base native Circle USDC: 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913</p>
+    <p>This is a quote-terms preflight, not a wallet client, security audit, payment receipt or investment recommendation. The examples use a fictional public recipient. Passing checks never authorizes spending.</p>
+  </footer>
+</main>
+<script type="module">
+import { reviewQuote, BASE_NATIVE_USDC } from "./quote-guard.js";
+const $ = (id) => document.getElementById(id);
+const receiver = "0x1234567890123456789012345678901234567890";
+function example(amount="10000"){
+  return JSON.stringify({x402Version:2,resource:{url:"https://example.org/api/synthetic-paid-brief"},accepts:[{scheme:"exact",network:"eip155:8453",asset:BASE_NATIVE_USDC,payTo:receiver,amount,maxTimeoutSeconds:300}]},null,2);
+}
+const quote=$("json"), cap=$("cap"), addr=$("recipient"), decision=$("decision");
+function load(amount){quote.value=example(amount);addr.value=receiver;decision.innerHTML='<div class="empty"><span style="font-size:34px">◎</span><strong>Ready to check</strong><span>Press Review payment terms to see the verified result.</span></div>'}
+$("demo-valid").onclick=()=>load();$("demo-blocked").onclick=()=>load("20001");
+$("clear").onclick=()=>{quote.value="";addr.value="";decision.innerHTML='<div class="empty"><strong>No quote analyzed</strong><span>Paste new public x402 metadata to continue.</span></div>'};
+function node(type,className,text){const el=document.createElement(type);if(className)el.className=className;if(text!==undefined)el.textContent=String(text);return el}
+function render(obj) {
+  decision.replaceChildren();
+  const signal=node("div","signal");
+  signal.append(node("small","", "POLICY RESULT"));
+  const headline=obj.decision==="BLOCK"?"BLOCKED BY POLICY":obj.decision==="REVIEW"?"MANUAL REVIEW REQUIRED":"LOCAL PREFLIGHT PASSED";
+  signal.append(node("strong","",headline),node("p","",obj.interpretation));
+  decision.append(signal);
+  const grid=node("div","statgrid");
+  for(const [key,value] of [["Max USDC",obj.maxSpendUsdc],["Payment options",obj.totalOptions]]){
+    const box=node("div","stat");box.append(node("small","",key),node("strong","",value));grid.append(box);
+  }
+  decision.append(grid);
+  for(const o of obj.options){
+    const op=node("div","opt");op.append(node("strong","",`Option ${o.index}: ${o.amountUsdc} USDC`));
+    op.append(node("span","",`Chain: ${o.network||"missing"}`),node("span","",`payTo: ${o.payTo||"missing"}`));decision.append(op);
+  }
+  for(const check of obj.checks){
+    const line=node("div","finding");
+    const mark=node("b",check.pass?"pass":"fail",check.pass?"✓":"×");
+    line.append(mark,node("span","",check.label));decision.append(line);
+  }
+  for(const issue of obj.issues)decision.append(node("p","warn",issue));
+  decision.append(node("p","smallnote",obj.disclaimer));
+}
+$("run").onclick=()=>{
+ try{
+  const value=reviewQuote({quoteText:quote.value,maxSpendUsdc:cap.value,expectedRecipient:addr.value});
+  render(value);
+ }catch(e){
+  decision.replaceChildren(node("div","warn",e instanceof Error?e.message:"Invalid quote"));
+ }
+};
+load();
+</script>
+</body>
+</html>
